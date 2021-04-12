@@ -20,7 +20,7 @@
 			</a>
 		</li>
 		<li class="c-sidebar-nav-item">
-			<a class="c-sidebar-nav-link" href="{{ route('posts.index') }}">
+			<a class="c-sidebar-nav-link" href="/admin/posts">
 				<i class="c-sidebar-nav-icon fas fa-blog"></i> Posts
 			</a>
 		</li>

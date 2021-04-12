@@ -17,7 +17,8 @@
         "laravel/ui": "^2.0",
         "proengsoft/laravel-jsvalidation": "^3.0",
         "spatie/laravel-permission": "^3.11",
-        "spatie/laravel-tags": "2.7.2"
+        "spatie/laravel-tags": "2.7.2",
+        "austintoddj/canvas": "5.4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

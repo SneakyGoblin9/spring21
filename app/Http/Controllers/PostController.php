@@ -45,7 +45,7 @@ class PostController extends Controller
 
         $post = Post::create([
             'title' => $request->title,
-            'body' => request('post-trixFields')
+            'body' =>  $request->body,
         ]);
 
         return redirect('/admin/posts');

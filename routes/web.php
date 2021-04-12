@@ -19,6 +19,8 @@ Route::get('/gallery', 'FrontendController@gallery');
 Route::get('/blog', 'FrontendController@blog');
 Route::get('/contact', 'FrontendController@contact');
 
+Route::post('logout', 'Auth\LoginController@logout');
+
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes(['register' => false]);
 });
@@ -29,13 +31,11 @@ Route::group([
     'prefix' => 'admin'
 ], function () {
 
+    Route::get('home', 'HomeController@index')->name('home');
+
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
-    Route::resource('posts', 'PostController');
 
     Route::get('password', 'ResetPasswordController@showPasswordResetFrom');
     Route::patch('password/change', 'ResetPasswordController@update')->name('password.change');
 });
-
-
-Route::get('/home', 'HomeController@index')->name('home');
