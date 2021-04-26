@@ -22,30 +22,32 @@ export default {
         confirmButtonColor: "#e64942",
         confirmButtonText: "Yes",
         showCancelButton: true,
-        reverseButtons: true
-      }).then(result => {
+        reverseButtons: true,
+      }).then((result) => {
         if (result.value) {
           axios
             .delete(url)
-            .then(function() {
-              Swal.fire(
-                "Deleted!",
-                "The record has been deleted.",
-                "success"
-              ).then(() => {
+            .then(function () {
+              Swal.fire({
+                title: "Deleted!",
+                text: "The record has been deleted.",
+                type: "success",
+                timer: 2000,
+              }).then(() => {
                 location.reload();
               });
             })
-            .catch(function(error) {
+            .catch(function (error) {
               Swal.fire({
                 title: "Opps...",
                 text: error.response.data.message,
-                type: "error"
+                type: "error",
+                timer: 5000,
               });
             });
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

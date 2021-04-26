@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontendController@index');
-Route::get('/about', 'FrontendController@about');
-Route::get('/gallery', 'FrontendController@gallery');
-Route::get('/blog', 'FrontendController@blog');
-Route::get('/contact', 'FrontendController@contact');
+Route::get('/',             'FrontendController@index');
+Route::get('/about',        'FrontendController@about');
+Route::get('/gallery',      'FrontendController@gallery');
+Route::get('/blog',         'FrontendController@blog');
+Route::get('/blog/{post}',  'FrontendController@blog_single')->name('posts.show');
+Route::get('tag/{slug}',    'FrontendController@getPostsByTag')->name('tag.posts.index');
+Route::get('/donate',       'FrontendController@donate');
+Route::get('/contact',      'FrontendController@contact');
 
 Route::post('logout', 'Auth\LoginController@logout');
 
@@ -36,6 +39,28 @@ Route::group([
     Route::resource('users', 'UsersController');
     Route::resource('roles', 'RolesController');
 
+    Route::resource('images', 'ImageController');
+    Route::post('images/upload', 'ImageController@upload');
+    Route::post('images/revert', 'ImageController@delete_image');
+
+
+    Route::resource('categories', 'CategoryController', [
+        'except' => ['create', 'show', 'edit']
+    ]);
+
+    Route::resource('donations', 'DonationController');
+
+
+    Route::resource('contact', 'ContactController', [
+        'only' => ['index', 'store', 'destroy']
+    ]);
+
     Route::get('password', 'ResetPasswordController@showPasswordResetFrom');
     Route::patch('password/change', 'ResetPasswordController@update')->name('password.change');
 });
+
+Route::resource('admin/contact', 'ContactController', [
+    'only' => ['index', 'store', 'destroy']
+]);
+
+Route::resource('donations', 'DonationController');

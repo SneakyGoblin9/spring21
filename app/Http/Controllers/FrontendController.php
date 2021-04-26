@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
+use Canvas\Post;
+use Canvas\Tag;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend.index', [
+            'images' => Image::whereNotIn('category_id', [1, 6])->get(),
+            'featured' => Image::where('category_id', 6)->get(),
+        ]);
     }
+
+
 
     public function about()
     {
@@ -18,7 +26,13 @@ class FrontendController extends Controller
 
     public function gallery()
     {
-        return view('frontend.gallery');
+        $images = Image::whereNotIn('category_id', [1, 6])
+            ->join('categories', 'categories.id', '=', 'images.category_id')
+            ->get()->groupBy('name');
+
+        return view('frontend.gallery', [
+            'images' => $images,
+        ]);
     }
 
     public function blog()
@@ -28,6 +42,12 @@ class FrontendController extends Controller
         return view('frontend.blog', [
             'posts' => $posts,
         ]);
+    }
+
+
+    public function donate()
+    {
+        return view('frontend.donate');
     }
 
     public function blog_single($slug)
@@ -45,7 +65,10 @@ class FrontendController extends Controller
             // IMPORTANT: You must include this event for Canvas to store view data
             event(new \Canvas\Events\PostViewed($post));
 
-            return view('posts.show', compact('data'));
+            $tags = Tag::get();
+            $recent = \Canvas\Post::published()->whereDate('published_at', '<', $data['post']->published_at)->get();
+
+            return view('posts.show', compact('data', 'tags', 'recent'));
         } else {
             abort(404);
         }
@@ -57,7 +80,7 @@ class FrontendController extends Controller
             $data = [
                 'posts' => \Canvas\Post::whereHas('tags', function ($query) use ($slug) {
                     $query->where('slug', $slug);
-                })->published()->orderByDesc('published_at')->get(),
+                })->published()->orderByDesc('published_at')->paginate(9),
                 'slug' => $slug,
             ];
 

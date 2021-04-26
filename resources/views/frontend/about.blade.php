@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="hero-wrap" style="background-image: url('images/bg_7.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap" style="background-image: url('/images/about.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
             <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                 <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
-                        class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
+                        class="mr-2"><a href="/">Home</a></span> <span>About</span></p>
                 <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
             </div>
         </div>
@@ -23,22 +23,30 @@
                     style="background-image: url(images/bg_3.jpg); width: 100%;"></div>
             </div>
             <div class="col-md-6 pl-md-5 ftco-animate">
-                <h2 class="mb-4">Welcome to Welfare Stablished Since 1898</h2>
-                <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question
-                    Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia,
-                    put her initial into the belt and made herself on the way.</p>
-                <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would
-                    have been rewritten a thousand times and everything that was left from its origin would be the word
-                    "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing
-                    the copy said could convince her and so it didn’t take long until a few insidious Copy Writers
-                    ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they
-                    abused her for their.</p>
+                <h2 class="mb-4">About us</h2>
+                <p>Welcome to our Photos Gallery website, We are the independent Burmese(Myanmar) Students in Europe who
+                    are trying to
+                    spread the news to the world and
+                    ask the International communities to help for the people of Myanmar.</p>
+                <h2 class="mb-4">Our Intentions</h2>
+                <p>Here in this Website, we would like to show to the world about What's happening in Myanmar(Burma)
+                    with the collection of
+                    photos and videos
+                    from Peaceful Protesting to Violent Crackdown and Victims who were horribly beaten and killed by the
+                    Myanmar Military
+                    Junta.
+                    We want to show the world the beauty and bravery of Myanmar people's defiance, how Myanmar People
+                    are resisting against
+                    inhumane acts from Myanmar Military Junta,
+                    how Myanmar Military Junta crackdown the peaceful protests and how they beat, kill and tortured in
+                    custody the
+                    protesters and civilians.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ftco-counter ftco-intro ftco-intro-2" id="section-counter">
+{{-- <section class="ftco-counter ftco-intro ftco-intro-2 mb-5" id="section-counter">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
@@ -70,9 +78,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
-<section class="ftco-section bg-light">
+{{-- <section class="ftco-section bg-light">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section ftco-animate text-center">
@@ -126,5 +134,5 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 @endsection

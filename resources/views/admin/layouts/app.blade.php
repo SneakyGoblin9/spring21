@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>21 Spring Myanmar</title>
     {{-- <link rel="shortcut icon" href="/img/favicon.png" /> --}}
 
     <!-- Styles -->
@@ -55,27 +55,27 @@
 <script>
     $('#alert').delay(5000).fadeOut('slow');
 
-    @if($error = session()->get('success'))
-        Swal.fire({
-            position: 'top-end',
-            type: 'success',
-            text: "{{ $message ?? 'success' }}",
-            showConfirmButton: false,
-            width: 250,
-            timer: 2000
-        })
-    @endif
+    // @if($error = session()->get('success'))
+    //     Swal.fire({
+    //         position: 'top-end',
+    //         type: 'success',
+    //         text: "{{ $message ?? 'success' }}",
+    //         showConfirmButton: false,
+    //         width: 250,
+    //         timer: 2000
+    //     })
+    // @endif
 
-    @if($error = session()->get('error'))
-            Swal.fire({
-                position: 'top-end',
-                type: 'error',
-                text: "{{ $error->first() }}",
-                showConfirmButton: false,
-                width: 250,
-                timer: 2000
-            })
-    @endif
+    // @if($error = session()->get('error'))
+    //         Swal.fire({
+    //             position: 'top-end',
+    //             type: 'error',
+    //             text: "{{ $error->first() }}",
+    //             showConfirmButton: false,
+    //             width: 250,
+    //             timer: 2000
+    //         })
+    // @endif
 
 </script>
 

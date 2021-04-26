@@ -18,7 +18,7 @@
 <section class="ftco-section">
     <div class="container">
         <div class="row d-flex">
-            @foreach($posts as $post)
+            @foreach($data['posts'] as $post)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
                     <a href="{{ route('posts.show', $post->slug) }}" class="block-20"
@@ -29,9 +29,9 @@
                             <div><a href="#">Admin</a></div>
                             {{-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div> --}}
                         </div>
-                        <h3 class="heading mt-3"><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
-                        </h3>
-                        <p>{{ $post->summary }}</p>
+                        <h3 class="heading mt-3"><a href="#">{{ $post->title }}</a></h3>
+                        <p>{{ $post->summary }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
 
 
         <div class="row mt-5">
-            <div class="mx-auto">{{ $posts->links() }}</div>
+            <div class="mx-auto">{{ $data['posts']->links() }}</div>
         </div>
     </div>
 </section>
