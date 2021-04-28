@@ -13,7 +13,7 @@ class FrontendController extends Controller
     {
         return view('frontend.index', [
             'images' => Image::whereNotIn('category_id', [1, 6])->get(),
-            'featured' => Image::where('category_id', 6)->get(),
+            'featured' => Image::where('category_id', 1)->get(),
         ]);
     }
 
